@@ -9,6 +9,7 @@ import { translations } from '@/lib/data';
 export default function Navbar() {
   const { language } = useLanguage();
   const t = translations[language].nav;
+  const [isMenuOpen, setIsMenuOpen] = React.useState(false);
 
   const navLinks = [
     { name: t.projects, href: '/projects' },
@@ -25,7 +26,9 @@ export default function Navbar() {
         >
           Portfolio.
         </Link>
-        <div className="flex items-center gap-6">
+        
+        {/* Desktop Menu */}
+        <div className="hidden md:flex items-center gap-6">
           <ul className="flex items-center gap-6">
             {navLinks.map((link) => (
               <li key={link.href}>
@@ -40,7 +43,42 @@ export default function Navbar() {
           </ul>
           <LanguageSwitcher />
         </div>
+
+        {/* Mobile Menu Button */}
+        <div className="flex items-center gap-4 md:hidden">
+          <LanguageSwitcher />
+          <button
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+            className="p-2 -mr-2 text-zinc-600 dark:text-zinc-400"
+            aria-label="Toggle menu"
+          >
+            {isMenuOpen ? (
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M18 6 6 18"/><path d="M6 6 18 18"/></svg>
+            ) : (
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
+            )}
+          </button>
+        </div>
       </div>
+
+      {/* Mobile Menu Overlay */}
+      {isMenuOpen && (
+        <div className="md:hidden border-t border-zinc-100 dark:border-zinc-900 bg-white dark:bg-black">
+          <ul className="flex flex-col p-4 gap-4">
+            {navLinks.map((link) => (
+              <li key={link.href}>
+                <Link
+                  href={link.href}
+                  onClick={() => setIsMenuOpen(false)}
+                  className="block text-base font-medium text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors"
+                >
+                  {link.name}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
     </nav>
   );
 }
