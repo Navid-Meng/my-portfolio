@@ -1,5 +1,7 @@
 'use client';
 
+import { motion, AnimatePresence } from 'framer-motion';
+
 import React, { createContext, useContext, useState, useEffect } from 'react';
 
 type Language = 'en' | 'km';
@@ -32,7 +34,17 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
   return (
     <LanguageContext.Provider value={{ language, setLanguage, toggleLanguage }}>
       <div className={language === 'km' ? 'font-kantumruy' : 'font-outfit'}>
-        {children}
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={language}
+            initial={{ opacity: 0, y: 5 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -5 }}
+            transition={{ duration: 0.2 }}
+          >
+            {children}
+          </motion.div>
+        </AnimatePresence>
       </div>
     </LanguageContext.Provider>
   );
