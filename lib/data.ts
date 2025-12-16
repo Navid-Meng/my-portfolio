@@ -36,6 +36,22 @@ export const techStack = {
     { name: 'Docker', icon: 'Container', description: 'Containerization' },
     { name: 'VS Code', icon: 'TerminalSquare', description: 'Editor' },
   ],
+
+};
+
+export const community = {
+  youtube: {
+    title: 'YouTube',
+    description: 'Watch tutorials & coding sessions',
+    subscribers: '10K+', // You can update this
+    link: 'http://www.youtube.com/@coderistic',
+  },
+  telegram: {
+    title: 'Telegram',
+    description: 'Join the developer community',
+    members: '5K+', // You can update this
+    link: 'https://t.me/coderistic',
+  },
 };
 
 export const translations = {
@@ -63,6 +79,11 @@ export const translations = {
       backend: 'Backend & Infrastructure',
       tools: 'Tools & DevOps',
     },
+
+    community: {
+      title: 'Community',
+      subtitle: 'Join the conversation and learn together.',
+    },
   },
   km: {
     nav: {
@@ -87,6 +108,10 @@ export const translations = {
       frontend: 'Frontend Powerhouse',
       backend: 'Backend & Infrastructure',
       tools: 'Tools & DevOps',
+    },
+    community: {
+      title: 'សហគមន៍',
+      subtitle: 'ចូលរួមការសន្ទនា និងរៀនទាំងអស់គ្នា។',
     },
   },
 };

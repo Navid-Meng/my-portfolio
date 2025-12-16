@@ -1,5 +1,6 @@
 import Hero from "@/components/sections/Hero";
 import TechStack from "@/components/sections/TechStack";
+import Community from "@/components/sections/Community";
 
 export default function Home() {
   return (
@@ -7,6 +8,9 @@ export default function Home() {
       <Hero />
       <div className="w-full">
         <TechStack />
+      </div>
+      <div className="w-full">
+        <Community />
       </div>
       <div className="h-[20vh] w-full flex items-center justify-center text-zinc-400">
         <p>More sections coming soon...</p>
