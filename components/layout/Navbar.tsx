@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import React from 'react';
 import LanguageSwitcher from '../shared/LanguageSwitcher';
+import ThemeToggle from '../shared/ThemeToggle';
 import { useLanguage } from '@/lib/LanguageContext';
 import { translations } from '@/lib/data';
 
@@ -44,10 +45,12 @@ export default function Navbar() {
             ))}
           </ul>
           <LanguageSwitcher />
+          <ThemeToggle />
         </div>
 
         {/* Mobile Menu Button */}
         <div className="flex items-center gap-4 md:hidden">
+          <ThemeToggle />
           <LanguageSwitcher />
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Outfit, Kantumruy_Pro } from "next/font/google";
 import Navbar from "@/components/layout/Navbar";
 import { LanguageProvider } from "@/lib/LanguageContext";
+import { ThemeProvider } from "@/components/shared/ThemeProvider";
 import "./globals.css";
 
 const outfit = Outfit({
@@ -29,10 +30,17 @@ export default function RootLayout({
       <body
         className={`${outfit.variable} ${kantumruy.variable} antialiased bg-zinc-50 dark:bg-black text-zinc-900 dark:text-zinc-100`}
       >
-        <LanguageProvider>
-          <Navbar />
-          {children}
-        </LanguageProvider>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange={false}
+        >
+          <LanguageProvider>
+            <Navbar />
+            {children}
+          </LanguageProvider>
+        </ThemeProvider>
       </body>
     </html>
   );
