@@ -1,6 +1,7 @@
 import Hero from "@/components/sections/Hero";
 import TechStack from "@/components/sections/TechStack";
 import Community from "@/components/sections/Community";
+import GravityFooter from "@/components/sections/Footer";
 
 export default function Home() {
   return (
@@ -12,9 +13,7 @@ export default function Home() {
       <div className="w-full">
         <Community />
       </div>
-      <div className="h-[20vh] w-full flex items-center justify-center text-zinc-400">
-        <p>More sections coming soon...</p>
-      </div>
+      <GravityFooter />
     </main>
   );
 }
