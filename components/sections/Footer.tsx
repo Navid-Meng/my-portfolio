@@ -210,12 +210,12 @@ export default function GravityFooter() {
   }, []);
 
   return (
-    <footer className="relative w-full border-t border-zinc-200 dark:border-zinc-800 bg-zinc-50 dark:bg-black overflow-hidden mt-20">
+    <footer className="relative w-full border-t border-zinc-300 dark:border-zinc-800 bg-[#f5f1eb] dark:bg-black overflow-hidden mt-20">
       <div className="absolute top-0 left-0 w-full text-center pt-8 pointer-events-none z-10">
-        <h2 className="text-sm font-medium text-zinc-400 uppercase tracking-widest">
+        <h2 className="text-sm font-medium text-zinc-500 uppercase tracking-widest">
             Tech Gravity
         </h2>
-        <p className="text-zinc-500 text-xs mt-2">
+        <p className="text-zinc-600 text-xs mt-2">
             My tech stack in zero-gravity. Hover to disturb.
         </p>
       </div>
@@ -229,7 +229,7 @@ export default function GravityFooter() {
               <div
                 key={tech.name + index}
                 ref={(el) => { iconRefs.current[index] = el; }}
-                className="absolute top-0 left-0 w-[50px] h-[50px] rounded-full bg-white dark:bg-zinc-900 shadow-lg flex items-center justify-center pointer-events-none select-none border border-zinc-200 dark:border-zinc-800"
+                className="absolute top-0 left-0 w-[50px] h-[50px] rounded-full bg-white dark:bg-zinc-900 shadow-md flex items-center justify-center pointer-events-none select-none border border-zinc-300 dark:border-zinc-800"
                 style={{ willChange: 'transform' }} // Optimize for movement
               >
                   {/* Icon Image */}

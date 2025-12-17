@@ -28,7 +28,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${outfit.variable} ${kantumruy.variable} antialiased bg-zinc-50 dark:bg-black text-zinc-900 dark:text-zinc-100`}
+        className={`${outfit.variable} ${kantumruy.variable} antialiased bg-[#f5f1eb] dark:bg-black text-zinc-800 dark:text-zinc-100`}
       >
         <ThemeProvider
           attribute="class"

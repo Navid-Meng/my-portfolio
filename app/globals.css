@@ -3,8 +3,9 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Calm pastel theme - soft warm beige background */
+  --background: #f5f1eb;
+  --foreground: #3d3935;
 }
 
 @theme inline {
