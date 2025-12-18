@@ -13,6 +13,7 @@ const outfit = Outfit({
 const kantumruy = Kantumruy_Pro({
   variable: "--font-kantumruy",
   subsets: ["khmer"],
+  weight: ["400", "700"],
 });
 
 export const metadata: Metadata = {
