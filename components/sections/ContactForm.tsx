@@ -111,7 +111,7 @@ export default function ContactForm() {
                 value={formData.purpose}
                 onChange={handleChange}
                 placeholder="collaborate on a project"
-                className="font-bold lowercase"
+                className="font-bold lowercase ml-3"
               />
               <span>. </span>
               <br className="hidden lg:block" />
