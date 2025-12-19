@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Send, CheckCircle2, ChevronRight } from 'lucide-react';
 
@@ -19,40 +19,35 @@ const AutoSizeInput = ({
   type?: string,
   className?: string
 }) => {
-  const [width, setWidth] = useState(0);
-  const span = useRef<HTMLSpanElement>(null);
-
-  useEffect(() => {
-    if (span.current) {
-      setWidth(span.current.offsetWidth);
-    }
-  }, [value, placeholder]);
-
   return (
-    <span className="relative inline-block align-baseline">
+    <div className="inline-grid align-baseline items-center justify-items-start relative group">
+      {/* Hidden element for measuring width/height */}
       <span 
-        ref={span} 
-        className={`absolute bottom-0 left-0 -z-10 invisible whitespace-pre px-1 text-2xl lg:text-5xl font-medium tracking-tight ${className}`}
+        className={`col-start-1 row-start-1 invisible whitespace-pre-wrap break-all px-1 min-w-[20px] text-2xl lg:text-5xl font-medium tracking-tight ${className}`}
+        aria-hidden="true"
       >
         {value || placeholder}
       </span>
-      <input
-        type={type}
+      
+      {/* Actual input element */}
+      <textarea
         name={name}
         value={value}
         onChange={onChange}
         placeholder={placeholder}
-        style={{ width: `${Math.max(width + 4, 20)}px` }}
+        rows={1}
         className={`
+          col-start-1 row-start-1 w-full h-full resize-none overflow-hidden
           bg-transparent border-b-2 border-zinc-200 dark:border-zinc-800 
           focus:border-zinc-900 dark:focus:border-white 
           outline-none transition-colors duration-300 
-          p-0 px-1 text-zinc-900 dark:text-white inline-block
+          p-0 px-1 text-zinc-900 dark:text-white 
           placeholder:text-zinc-300 dark:placeholder:text-zinc-700
+          text-2xl lg:text-5xl font-medium tracking-tight
           ${className}
         `}
       />
-    </span>
+    </div>
   );
 };
 
